@@ -7,7 +7,15 @@ package com.zhao.leetcode.introduction.dynamicPlanning;
 public class ShinStairs {
 
     public static void main(String[] args) {
-        System.out.println(climbStairs(5));
+
+        int num = 2 ;
+        int nums = 4;
+
+        num =+ nums;
+
+        System.out.println(num);
+
+ //       System.out.println(climbStairs(5));
     }
 
     public static int climbStairs(int n) {

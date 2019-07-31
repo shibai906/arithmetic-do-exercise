@@ -1,7 +1,5 @@
 package com.zhao.leetcode.linked;
 
-import com.zhao.leetcode.ListNode;
-
 /**
  * 删除链表的倒数第N个节点
  */

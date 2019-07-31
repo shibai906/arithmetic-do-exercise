@@ -1,6 +1,6 @@
 package com.zhao.leetcode.haidechongxinjisuan;
 
-import com.zhao.leetcode.ListNode;
+import com.zhao.leetcode.linked.ListNode;
 
 /**
  * 合并k个排序链表

@@ -8,7 +8,6 @@ public class ShinStairs {
 
     public static void main(String[] args) {
         System.out.println(climbStairs(4));
-
         int num = 2 ;
         int nums = 4;
 

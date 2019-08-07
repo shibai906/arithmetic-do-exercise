@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class MaxSon {
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("acvddaer",0));
+        System.out.println(myLengthOfLongestSubstring("abba",0));
 
     }
 
@@ -40,13 +40,12 @@ public class MaxSon {
 
 
     // 优化滑动窗口
-    public static int lengthOfLongestSubstring(String s ,int n) {
-
-        n = s.length() ;
+    public static int tarenLengthOfLongestSubstring(String s ) {
+        int len = s.length() ;
         int ans = 0;
         Map<Character,Integer> map = new HashMap<>(); // 新建map集合
 
-        for(int j = 0 , i = 0 ; j < n; j ++) {
+        for(int j = 0 , i = 0 ; j < len; j ++) {
             if(map.containsKey(s.charAt(j))) {
                 i = Math.max(map.get(s.charAt(j)),i); // 当什么什么来着
             }
@@ -54,7 +53,28 @@ public class MaxSon {
             map.put(s.charAt(j),j + 1);
         }
         return ans;
+    }
 
+    // 我的优化滑动窗口
+    public static int myLengthOfLongestSubstring(String s ,int n) {
+        int len = s.length();
+        int[] arr = new int[127];
+        char[] chars = s.toCharArray();
+        int max = 0 ;
+        for(int i = 0 , j = 0 ; i < len ; i ++) {
+            int num = arr[chars[i]] ;
+            if(num != 0) {
+                j = Math.max(j,num);
+            }
+            arr[chars[i]] = i + 1;
+            max = Math.max(max,i - j + 1);
+        }
+        if(max == 0 ) {
+            max = s.length();
+        }
+        return max;
 
     }
+
+
 }

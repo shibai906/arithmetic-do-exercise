@@ -1,1 +1,2 @@
 leetCode 32题，得会暴力法和动态规划 com.zhao.leetcode.StringStudy.MaxValidBracket
+491题：由于未做过类似的，难度还行，com.zhao.leetcode.arr.ProgreIncreaseSequence

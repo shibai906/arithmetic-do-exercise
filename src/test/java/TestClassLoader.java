@@ -8,7 +8,7 @@ public class TestClassLoader {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         Class<?> cl = classLoader.loadClass("D:\\webapp\\arithmetic-do-exercise\\target\\test-classes\\TestJava");
         TestJava testJava = (TestJava)cl.newInstance();
-        testJava.function();
+
 
     }
 

@@ -30,7 +30,7 @@ public class FigureOneNumber {
 
         }
 
-
+        return 0;
 
     }
 

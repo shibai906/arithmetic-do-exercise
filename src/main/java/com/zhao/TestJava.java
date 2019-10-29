@@ -1,6 +1,8 @@
 package com.zhao;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -14,8 +16,7 @@ public class TestJava {
     static volatile boolean flag = true;
     static volatile char print = 'a';
     public static void main(String[] args) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
-        System.out.println(simpleDateFormat.format(System.currentTimeMillis()));
+        System.out.println(System.currentTimeMillis());
     }
 
     private static void testFlag() {

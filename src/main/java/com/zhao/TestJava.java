@@ -1,8 +1,10 @@
 package com.zhao;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -16,6 +18,10 @@ public class TestJava {
     static volatile boolean flag = true;
     static volatile char print = 'a';
     public static void main(String[] args) {
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(2);
+        queue.add(1);
+        System.out.println(queue.peek());
         System.out.println(System.currentTimeMillis());
     }
 

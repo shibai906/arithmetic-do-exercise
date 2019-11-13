@@ -18,11 +18,11 @@ public class TestJava {
     static volatile boolean flag = true;
     static volatile char print = 'a';
     public static void main(String[] args) {
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.add(2);
-        queue.add(1);
-        System.out.println(queue.peek());
-        System.out.println(System.currentTimeMillis());
+
+        String name = "asdfasdfaec";
+        name = name.length() == 1 ? name + "**" + name : name.substring(0,1) + "**" + name.substring(name.length() - 1, name.length());
+        System.out.println(name);
+
     }
 
     private static void testFlag() {

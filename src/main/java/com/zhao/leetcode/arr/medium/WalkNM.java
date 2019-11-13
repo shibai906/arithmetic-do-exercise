@@ -36,7 +36,6 @@ public class WalkNM {
         if(M == MMax - 1 || N == NMax - 1) {
             return 1;
         }
-
         return walk(M + 1 , N , NMax , MMax) + walk(M , N + 1 , NMax , MMax );
 
     }

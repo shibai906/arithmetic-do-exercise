@@ -1,7 +1,5 @@
 package com.zhao.multithreading;
 
-import javax.jnlp.IntegrationService;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +24,7 @@ public class CarveUpRedPacket {
 
     /**
      * 计算每人获得红包金额;最小每人0.01元
-     * @param mmm 红包总额
+     * @param money 红包总额
      * @param number 人数
      * @return
      */

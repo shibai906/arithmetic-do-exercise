@@ -1,5 +1,7 @@
 package com.zhao;
 
+import com.google.common.collect.Lists;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -11,18 +13,33 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class TestJava {
 
-
+    static long tatal = 0 ;
     static ReentrantReadWriteLock readWriteLock =new ReentrantReadWriteLock();
     static Lock redLock = readWriteLock.readLock();
     static Lock writeLock = readWriteLock.writeLock();
     static volatile boolean flag = true;
     static volatile char print = 'a';
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
+        List<Integer> list = new ArrayList<>();
+        for(int i = 1 ; i < 1000000000 ; i ++) {
+            list.add(i);
+        }
+        long startTime = System.currentTimeMillis();
 
-        String name = "asdfasdfaec";
-        name = name.length() == 1 ? name + "**" + name : name.substring(0,1) + "**" + name.substring(name.length() - 1, name.length());
-        System.out.println(name);
-
+        CompletableFuture<Long> future = CompletableFuture.supplyAsync(() -> {
+          list.parallelStream().forEach( integer ->  tatal = integer + tatal);
+          return tatal;
+        }).exceptionally( e -> {
+            e.printStackTrace();
+            return 0L;});
+        long endStartTime = System.currentTimeMillis();
+        future.get(60, TimeUnit.MILLISECONDS);
+        System.out.println(future.get() + "----" + tatal + ", 时间：" + (endStartTime - startTime));
+/*        tatal = 0 ;
+        long startTime = System.currentTimeMillis();
+        list.stream().forEach(integer -> tatal = integer + tatal);
+        long endStartTime = System.currentTimeMillis();
+        System.out.println(tatal + ", 时间：" + (endStartTime - startTime));*/
     }
 
     private static void testFlag() {

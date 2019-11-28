@@ -18,7 +18,7 @@ import java.util.List;
 public class ScrewMatrix {
 
     public List<Integer> spiralOrder(int[][] matrix) {
-
+        return null;
     }
 
 }

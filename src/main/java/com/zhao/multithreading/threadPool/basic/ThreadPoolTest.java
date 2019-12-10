@@ -15,6 +15,7 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) {
         System.out.println();
+        System.out.println();
         ExecutorService service = new ThreadPoolExecutor(10,100,1, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>(10));
         for(int i = 0 ; i < 20 ; i ++) {
             service.execute(() -> {

@@ -1,12 +1,16 @@
 package com.zhao;
 
-import com.google.common.collect.Lists;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
+
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -19,8 +23,43 @@ public class TestJava {
     static Lock writeLock = readWriteLock.writeLock();
     static volatile boolean flag = true;
     static volatile char print = 'a';
-    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
-        List<Integer> list = new ArrayList<>();
+    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException, NoSuchAlgorithmException, IOException {
+
+
+        Long integer = new Long(34);
+        System.out.println(integer.toString(1,2));
+
+        System.out.println(System.currentTimeMillis());
+
+/*        System.out.println("c5a01733977a2d1797abced1e81305b1".equals("c5a01733977a2d1797abced1e81305b1"));
+
+        InputStream in = new FileInputStream("/home/work/log/1.zip");
+        int iAvail = in.available();
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] bytes = new byte[iAvail];
+        in.read(bytes);
+        System.out.println(new String(bytes,1,10));
+        md.update(bytes);
+        byte[] digest = md.digest();//此处得到的是md5加密后的byte类型值
+
+        int i;
+        StringBuilder sb = new StringBuilder();
+        for (int offset = 0; offset < digest.length; offset++) {
+            i = digest[offset];
+            if (i < 0)
+                i += 256;
+            if (i < 16)
+                sb.append(0);
+            sb.append(Integer.toHexString(i));//通过Integer.toHexString方法把值变为16进制
+        }
+
+        System.out.println(new String(bytes,1,10));
+        System.out.println(sb.toString());*/
+
+/*        Optional<JSONObject> optional = Optional.ofNullable(JSON.parseObject("{\"image\":\"miuifile://MifiMp/097c65edd406d888426fb4c3d4cbfd1337e4218a2\",\"stat\":{\"screen_area\":\"profile_item_finan_icon\",\"element_id\":\"理财_705\",\"element_position\":\"2\"},\"type\":\"icon\",\"title\":\"理财\",\"target\":{\"title\":\"借钱\",\"loginRequired\":false,\"url\":\"https://api.jr.mi.com/app/home?from=local&id=fund\"}}"));
+        System.out.println(optional.map(jsonObject1 -> jsonObject1.getString("title")).orElse(""));*/
+
+ /*       List<Integer> list = new ArrayList<>();
         for(int i = 1 ; i < 1000000000 ; i ++) {
             list.add(i);
         }
@@ -34,7 +73,7 @@ public class TestJava {
             return 0L;});
         long endStartTime = System.currentTimeMillis();
         future.get(60, TimeUnit.MILLISECONDS);
-        System.out.println(future.get() + "----" + tatal + ", 时间：" + (endStartTime - startTime));
+        System.out.println(future.get() + "----" + tatal + ", 时间：" + (endStartTime - startTime));*/
 /*        tatal = 0 ;
         long startTime = System.currentTimeMillis();
         list.stream().forEach(integer -> tatal = integer + tatal);

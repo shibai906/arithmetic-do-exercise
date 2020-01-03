@@ -14,7 +14,7 @@ public class Client {
         IfTest test = new IfTest();
         System.out.println(test.testString("zhaohuan"));
 
-        System.out.println(EnumTest.getByName("zhaohuan").handle("2399898"));
+        System.out.println(EnumTest.getByName("zhaohuan").handle());
     }
 
 }

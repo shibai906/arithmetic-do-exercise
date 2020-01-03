@@ -1,16 +1,15 @@
 package com.zhao;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.MessageDigest;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
-import java.util.Optional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -25,11 +24,29 @@ public class TestJava {
     static volatile char print = 'a';
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException, NoSuchAlgorithmException, IOException {
 
+        URL url = new URL("https://ts.market.mi-img.com/download/MifiMp/MifiMp/058c72488116040942bf838730f096d2c9898bfee/1.xlsx");
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        InputStream in = urlConnection.getInputStream();
+        System.out.println(in.read());
 
-        Long integer = new Long(34);
-        System.out.println(integer.toString(1,2));
 
-        System.out.println(System.currentTimeMillis());
+        System.out.println();
+
+        List<String> list = new ArrayList<>();
+        list.add("/1.xlsx");
+        list.add("/1.xls");
+        list.add("/1.csv");
+        String str = "str" ;
+        str += "/1." + "xlsx";
+        System.out.println(str);
+        System.out.println(list.contains( "/1." + "xlsx"));
+
+//        System.out.println((1|2) & 1);
+//
+//        Long integer = new Long(34);
+//        System.out.println(integer.toString(1,2));
+//
+//        System.out.println(System.currentTimeMillis());
 
 /*        System.out.println("c5a01733977a2d1797abced1e81305b1".equals("c5a01733977a2d1797abced1e81305b1"));
 

@@ -34,23 +34,21 @@ public enum EnumTest {
  */
 
     ZHAOHUAN("zhaohuan") {
+
         @Override
-        public String handle(String userID) {
-            System.out.println(userID);
+        public String handle() {
             return "benren";
         }
     },
     LIUER("liuer") {
         @Override
-        public String handle(String userID) {
-            System.out.println(userID);
+        public String handle() {
             return "qianreng";
         }
     },
     ZHAOJIAXXING("zhaojiaxing") {
         @Override
-        public String handle(String userID) {
-            System.out.println(userID);
+        public String handle() {
             return "qianreng";
         }
     },
@@ -70,7 +68,7 @@ public enum EnumTest {
         return null;
     }
 
-    public abstract String handle(String userID);
+    public abstract String handle();
 
 
 

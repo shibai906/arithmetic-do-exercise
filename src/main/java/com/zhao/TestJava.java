@@ -24,22 +24,23 @@ public class TestJava {
     static volatile char print = 'a';
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException, NoSuchAlgorithmException, IOException {
 
-        URL url = new URL("https://ts.market.mi-img.com/download/MifiMp/MifiMp/058c72488116040942bf838730f096d2c9898bfee/1.xlsx");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        InputStream in = urlConnection.getInputStream();
-        System.out.println(in.read());
-
-
-        System.out.println();
-
-        List<String> list = new ArrayList<>();
-        list.add("/1.xlsx");
-        list.add("/1.xls");
-        list.add("/1.csv");
-        String str = "str" ;
-        str += "/1." + "xlsx";
-        System.out.println(str);
-        System.out.println(list.contains( "/1." + "xlsx"));
+        System.out.println("你好");
+//        URL url = new URL("https://ts.market.mi-img.com/download/MifiMp/MifiMp/058c72488116040942bf838730f096d2c9898bfee/1.xlsx");
+//        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+//        InputStream in = urlConnection.getInputStream();
+//        System.out.println(in.read());
+//
+//
+//        System.out.println();
+//
+//        List<String> list = new ArrayList<>();
+//        list.add("/1.xlsx");
+//        list.add("/1.xls");
+//        list.add("/1.csv");
+//        String str = "str" ;
+//        str += "/1." + "xlsx";
+//        System.out.println(str);
+//        System.out.println(list.contains( "/1." + "xlsx"));
 
 //        System.out.println((1|2) & 1);
 //

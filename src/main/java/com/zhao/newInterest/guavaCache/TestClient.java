@@ -1,9 +1,6 @@
 package com.zhao.newInterest.guavaCache;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
+import com.google.common.cache.*;
 import com.google.common.collect.ImmutableMap;
 import com.sun.org.apache.xalan.internal.xsltc.dom.CachedNodeListIterator;
 
@@ -28,7 +25,7 @@ import java.util.concurrent.*;
  */
 public class TestClient {
 
-    private static Cache<String,String> allCache = CacheBuilder.newBuilder().maximumSize(100).build();
+    private static Cache<Object, Object> allCache = CacheBuilder.newBuilder().maximumSize(100).build();
 
     private static LoadingCache<String,String> allLoadingCache = CacheBuilder.newBuilder().maximumSize(100).build(new CacheLoader<String, String>() {
         @Override

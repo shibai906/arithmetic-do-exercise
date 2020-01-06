@@ -1,7 +1,6 @@
 package com.zhao.newInterest.function;
 
 import java.util.function.Consumer;
-import java.util.function.IntConsumer;
 import java.util.stream.Stream;
 
 /**
@@ -19,7 +18,6 @@ public class ConsumerTest {
     }
 
     public static void testConsumer() {
-
         // 1、使用consumer接口实现方法
         Consumer<String> consumer = new Consumer<String>() {
             @Override

@@ -4,4 +4,4 @@ target/
 .project
 .classpath
 .settings
-out/
+out/*

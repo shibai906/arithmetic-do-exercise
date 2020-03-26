@@ -27,51 +27,27 @@ public class KafkaProducerAnalysis {
 
     private static ExecutorService executor = new ThreadPoolExecutor(10,20,20, TimeUnit.MINUTES, new ArrayBlockingQueue<>(10));
 
-    public static final String brokerList = "localhost:9092";
-    public static final String topic = "topic-demo";
-
-    public static Properties initConfig() {
-        Properties prop = new Properties();
-        prop.put("bootstrap.servers",brokerList);
-        return prop;
-    }
-
     public static void main(String[] args) {
-        consumer();
-
-//        for(int i = 0 ; i < 100 ; i ++) {
-//            executor.execute(() -> producer());
-//        }
-//
-//        executor.execute(() -> consumer());
-    }
-
-    public static void producer() {
-        Properties props = initConfig();
-        props.put("key.serializer", StringSerializer.class);
-        props.put("value.serializer",StringSerializer.class);
-        KafkaProducer<String,String> producer = new KafkaProducer<>(props);
-        ProducerRecord<String,String> record = new ProducerRecord<>(topic,"Hello,Kafka");
-        producer.send(record);
-    }
-
-    public static void consumer() {
-        Properties props = initConfig();
-        // 制定消费组
-        props.put("group.id","test");
+        //配置信息
+        Properties props = new Properties();
+        //kafka服务器地址
+        props.put("bootstrap.servers", "localhost:9092");
+        //必须指定消费者组
+        props.put("group.id", "test");
+        //设置数据key和value的序列化处理类
         props.put("key.deserializer", StringDeserializer.class);
-        props.put("value.deserializer",StringDeserializer.class);
-        // 创建消费者实例
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<String,String>(props);
-        // 订阅topic1的消息
-        consumer.subscribe(Arrays.asList(topic));
-        while(true) {
+        props.put("value.deserializer", StringDeserializer.class);
+        //创建消息者实例
+        KafkaConsumer<String,String> consumer = new KafkaConsumer<>(props);
+        //订阅topic1的消息
+        consumer.subscribe(Arrays.asList("topic1"));
+        //到服务器中读取记录
+        while (true){
             ConsumerRecords<String,String> records = consumer.poll(Duration.ofMillis(100));
-            for(ConsumerRecord<String,String> record : records) {
-                System.out.println("key:" + record.key() + ", value:" + record.value());
+            for(ConsumerRecord<String,String> record : records){
+                System.out.println("key:" + record.key() + "" + ",value:" + record.value());
             }
         }
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.zhao.basis;
+package com.zhao.basis.collection;
 
 public class TestString {
 

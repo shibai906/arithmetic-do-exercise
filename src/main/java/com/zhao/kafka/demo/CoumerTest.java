@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * @author: zhaohuan
  * @create: 2020-03-18 23:29
  **/
-public class KafkaProducerAnalysis {
+public class CoumerTest {
 
     private static ExecutorService executor = new ThreadPoolExecutor(10,20,20, TimeUnit.MINUTES, new ArrayBlockingQueue<>(10));
 
@@ -40,7 +40,7 @@ public class KafkaProducerAnalysis {
         //创建消息者实例
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(props);
         //订阅topic1的消息
-        consumer.subscribe(Arrays.asList("topic1"));
+        consumer.subscribe(Arrays.asList("topics"));
         //到服务器中读取记录
         while (true){
             ConsumerRecords<String,String> records = consumer.poll(Duration.ofMillis(100));
@@ -51,3 +51,7 @@ public class KafkaProducerAnalysis {
     }
 
 }
+
+
+
+

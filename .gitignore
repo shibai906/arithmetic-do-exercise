@@ -5,3 +5,4 @@ target/
 .classpath
 .settings
 out/*
+out/production/arithmetic-do-exercise/com/zhao/

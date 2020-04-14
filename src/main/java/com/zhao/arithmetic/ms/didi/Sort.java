@@ -1,22 +1,16 @@
-package com.zhao;
+package com.zhao.arithmetic.ms.didi;
 
-import com.google.common.util.concurrent.ForwardingBlockingQueue;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
-import javax.jws.WebParam;
-import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- *  测试lamda表达式
- */
-public class TestLamda {
-    public static void main(String[] args) {
-
-        int arr[] = arr(new int[] {3,1,1,1,2,2,4,2,3,6,6});
-
-    }
+ * @program: arithmetic-do-exercise
+ * @description
+ * @author: zhaohuan
+ * @create: 2020-04-14 22:52
+ * 题目：从数组里面，找出相同的数，相同个数最多的数排在最前面
+ **/
+public class Sort {
 
     public static int[] arr(int arr[]) {
         if(arr == null) {
@@ -88,7 +82,5 @@ public class TestLamda {
         newArr[0][newArrLen] = arr[0][arrLen];
         newArr[1][newArrLen] = arr[1][arrLen];
     }
-
-
 
 }

@@ -23,11 +23,25 @@ public class TestLa {
         pre.next=node;
         pre=node;
         Node tail=node;
+        reverseRecursion(head);
         reverse(null,head);
         while (tail!=null){
             System.out.println(tail.val);
             tail=tail.next;
         }
+    }
+
+    private static Node reverseRecursion(Node node) {
+
+        if(node.next == null) {
+            return node;
+        }
+        node = reverseRecursion(node.next).next = node;
+        node.next = node;
+        node.next = null;
+        return node;
+
+
     }
 
     private static Node reverse(Node pre,Node cur){

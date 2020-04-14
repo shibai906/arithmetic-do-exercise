@@ -1,5 +1,6 @@
 package com.zhao.kafka.demo;
 
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -31,21 +32,22 @@ public class CoumerTest {
         //配置信息
         Properties props = new Properties();
         //kafka服务器地址
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         //必须指定消费者组
-        props.put("group.id", "test");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         //设置数据key和value的序列化处理类
-        props.put("key.deserializer", StringDeserializer.class);
-        props.put("value.deserializer", StringDeserializer.class);
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         //创建消息者实例
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(props);
         //订阅topic1的消息
-        consumer.subscribe(Arrays.asList("topics"));
+        consumer.subscribe(Arrays.asList("topics","topics2"));
+        consumer.subscribe(Arrays.asList("topics2"));
         //到服务器中读取记录
         while (true){
             ConsumerRecords<String,String> records = consumer.poll(Duration.ofMillis(100));
             for(ConsumerRecord<String,String> record : records){
-                System.out.println("key:" + record.key() + "" + ",value:" + record.value());
+                System.out.println("key:" + record.key() + "" + ",value:" + record.value() + ", offset" + record.offset() );
             }
         }
     }

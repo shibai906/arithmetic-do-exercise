@@ -1,4 +1,4 @@
-package com.zhao.arithmetic;
+package com.zhao.arithmetic.sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -7,40 +7,32 @@ package com.zhao.leetcode.arr.medium;
  * @description
  * 地址：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
  * 题目：153. 寻找旋转排序数组中的最小值
- * 思路：二分查找的方式，然后找左右即可
+ * 思路：二分查找的方式，然后找左右即可，
  **/
 public class SpinMin {
 
 
     public static void main(String[] args) {
         SpinMin spinMin = new SpinMin();
-
+        spinMin.findMin(3,4,5,1,2);
     }
 
     public int findMin(int ... nums) {
-
         if(nums == null || nums.length == 0) {
             return 0;
         }
         int min = 0 , max = nums.length - 1 ;
-        int mid = max + min;
-        while ( mid > min) {
-            if(nums[mid] > nums[min]) {
-                max = mid;
+        int mid = (max + min) / 2;
+        while ( max > min) {
+            if(nums[mid] > nums[max]) {
+                min = mid + 1;
             }
-            if(nums[mid] < nums[min]) {
-                min = mid;
+            if(nums[mid] < nums[max]) {
+                max = mid ;
             }
             mid = (max + min) /2 ;
         }
-        int result = nums[mid] ;
-        if(mid > 0) {
-            result = result < nums[mid - 1] ? nums[mid - 1] : result;
-        }
-        if(mid < nums.length - 1) {
-            result = result < nums[mid + 1] ? nums[mid + 1] : result;
-        }
-        return result;
+        return nums[mid];
     }
 
 }

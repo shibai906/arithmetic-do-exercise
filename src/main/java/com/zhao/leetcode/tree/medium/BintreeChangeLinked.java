@@ -1,5 +1,7 @@
-package com.zhao.leetcode.tree;
+package com.zhao.leetcode.tree.medium;
 
+
+import com.zhao.leetcode.tree.TreeNode;
 
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package com.zhao.leetcode.arr;
+package com.zhao.leetcode.arr.easy;
 
 /**
  * 地址： https://leetcode-cn.com/problems/perfect-number/

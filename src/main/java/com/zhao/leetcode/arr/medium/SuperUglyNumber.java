@@ -1,4 +1,4 @@
-package com.zhao.leetcode.arr;
+package com.zhao.leetcode.arr.medium;
 
 import javax.management.ObjectName;
 import java.util.ArrayList;

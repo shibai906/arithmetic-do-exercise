@@ -1,4 +1,4 @@
-package com.zhao.leetcode.arr;
+package com.zhao.leetcode.arr.hard;
 
 /**
  *  地址： https://leetcode-cn.com/problems/first-missing-positive/

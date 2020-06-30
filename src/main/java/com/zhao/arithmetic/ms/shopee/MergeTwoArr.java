@@ -1,14 +1,15 @@
-package com.zhao;
-
+package com.zhao.arithmetic.ms.shopee;
 
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.util.concurrent.Semaphore;
 
 /**
- *  测试lamda表达式
- */
-public class TestLamda {
+ * @program: arithmetic-do-exercise
+ * @author: zhaohuan
+ * @create: 2020-06-30 12:12
+ * @description
+ * 虾皮笔试题一： 合并两个数组
+ **/
+public class MergeTwoArr {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -25,7 +26,7 @@ public class TestLamda {
         String string1 = in.next();
         String string2 = in.next();
         String strs1[] = string1.split(",");
-        String strs2[] = string1.split(",");
+        String strs2[] = string2.split(",");
 
         int arr1[] = new int[strs1.length];
         int arr2[] = new int[strs2.length];
@@ -81,6 +82,5 @@ public class TestLamda {
         }
         return result;
     }
-
 
 }

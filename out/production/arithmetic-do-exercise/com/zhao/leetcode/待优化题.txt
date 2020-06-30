@@ -1,5 +1,0 @@
-leetCode 32题，得会暴力法和动态规划 com.zhao.leetcode.StringStudy.MaxValidBracket
-491题：由于未做过类似的，难度还行，com.zhao.leetcode.arr.ProgreIncreaseSequence
-991题：坏了计算器，难度可以，思路还得重新想清除 com.zhao.leetcode.integer.OutOfOrderCalculator
-55题：跳跃游戏，动态规划待解 com.zhao.leetcode.arr.JumpGame
-313. 超级丑数，未完成 com.zhao.leetcode.arr.SuperUglyNumber

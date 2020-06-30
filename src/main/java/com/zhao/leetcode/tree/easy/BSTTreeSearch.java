@@ -1,4 +1,6 @@
-package com.zhao.leetcode.tree;
+package com.zhao.leetcode.tree.easy;
+
+import com.zhao.leetcode.tree.TreeNode;
 
 import java.util.Stack;
 
@@ -9,7 +11,7 @@ import java.util.Stack;
  */
 public class BSTTreeSearch {
 
-    public TreeNode searchBST(TreeNode root, int val) {
+    public com.zhao.leetcode.tree.TreeNode searchBST(TreeNode root, int val) {
 
         // 自己方案
        /* if(root == null) {

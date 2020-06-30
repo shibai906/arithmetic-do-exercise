@@ -1,6 +1,7 @@
-package com.zhao.leetcode.tree;
+package com.zhao.leetcode.tree.easy;
 
 
+import com.zhao.leetcode.tree.TreeNode;
 import sun.reflect.generics.tree.Tree;
 
 import java.util.Map;
@@ -16,22 +17,22 @@ public class BinarySearchTreeChangeAddTree {
 
     public static void main(String[] args) {
 
-        TreeNode root = new TreeNode(1);
-        TreeNode opeRoot = root;
-        opeRoot.left = new TreeNode(2);
-        opeRoot.right = new TreeNode(3);
+        com.zhao.leetcode.tree.TreeNode root = new com.zhao.leetcode.tree.TreeNode(1);
+        com.zhao.leetcode.tree.TreeNode opeRoot = root;
+        opeRoot.left = new com.zhao.leetcode.tree.TreeNode(2);
+        opeRoot.right = new com.zhao.leetcode.tree.TreeNode(3);
         convertBinaST(root);
 
     }
 
-    public static TreeNode convertBinaST(TreeNode root) {
+    public static com.zhao.leetcode.tree.TreeNode convertBinaST(com.zhao.leetcode.tree.TreeNode root) {
 
         if(root == null) {
             return root;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Stack<com.zhao.leetcode.tree.TreeNode> stack = new Stack<>();
         int count = 0;
-        TreeNode opeRoot = root;
+        com.zhao.leetcode.tree.TreeNode opeRoot = root;
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
                 stack.push(root);
@@ -47,16 +48,16 @@ public class BinarySearchTreeChangeAddTree {
         return opeRoot;
     }
 
-    public static TreeNode convertBST(TreeNode root) {
+    public static com.zhao.leetcode.tree.TreeNode convertBST(com.zhao.leetcode.tree.TreeNode root) {
 
         if(root == null) {
             return root;
         }
         TreeMap<Integer,Integer> treeMap = new TreeMap<>();
-        Stack<TreeNode> stack = new Stack<>();
+        Stack<com.zhao.leetcode.tree.TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            TreeNode opeRoot = stack.pop();
+            com.zhao.leetcode.tree.TreeNode opeRoot = stack.pop();
             int num = treeMap.getOrDefault(opeRoot.val,0);
             treeMap.put(opeRoot.val,num+1);
             if(opeRoot.left != null) {

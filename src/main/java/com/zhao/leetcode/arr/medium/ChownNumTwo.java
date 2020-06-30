@@ -1,4 +1,4 @@
-package com.zhao.leetcode.arr;
+package com.zhao.leetcode.arr.medium;
 
 /**
  *  地址： https://leetcode-cn.com/problems/ugly-number-ii/

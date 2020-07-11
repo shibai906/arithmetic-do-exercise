@@ -8,6 +8,7 @@ package com.zhao.leetcode.arr.medium;
  * 题目：长度最小的子数组
  * 内容：给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组，并返回其长度。如果不存在符合条件的连续子数组，返回 0。
  * 地址：https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+ * 注意：看题必须清楚
  *
  */
 public class MinLengthArr {
@@ -15,7 +16,7 @@ public class MinLengthArr {
     public static void main(String[] args) {
 
         MinLengthArr arr = new MinLengthArr();
-        arr.minSubArrayLen(11 ,new int[]{1,2,3,4,5});
+        arr.minSubArrayLenByMe(11 ,new int[]{1,2,3,4,5});
 
     }
 
@@ -45,41 +46,27 @@ public class MinLengthArr {
         return false;
     }
 
-/*
-    public int minSubArrayLen(int s, int[] nums) {
+
+    public int minSubArrayLenByMe(int s, int[] nums) {
 
         if(nums == null ) {
             return 0;
         }
-        int sum = 0 , len = 0 , minLen = 0 ;
-
-        for(int i = 0 ; i < nums.length ; ) {
-
-            if(sum > s) {
-                sum -= nums[i - len ];
-                len -- ;
-            } else if(sum == s) {
-                if(minLen == 0 || len < minLen) {
-                    minLen = len;
-                }
-                sum -= nums[i - len ];
-                len -- ;
-            } else {
+        int sum = 0 , len = 0 , minLen = Integer.MAX_VALUE ;
+        for(int i = 0 ; i <= nums.length ; ) {
+            if (sum >= s) {
+                minLen = Math.min(len, minLen);
+                sum -= nums[i - len];
+                len--;
+            } else if(i < nums.length) {
                 sum += nums[i];
-                len ++;
-                i ++;
+                len++;
+                i++;
+            } else {
+                i ++ ;
             }
         }
-        while(len > 0 && sum >= s) {
-            if(sum == s) {
-                if(minLen == 0 || len < minLen) {
-                    minLen = len;
-                }
-            }
-            sum -= nums[nums.length - len];
-            len -- ;
-        }
-        return minLen;
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
-*/
+
 }

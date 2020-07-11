@@ -1,4 +1,4 @@
-package com.zhao.arithmetic.ms.gsx;
+package com.zhao.arithmetic.ms.gensheixue;
 
 import java.util.*;
 

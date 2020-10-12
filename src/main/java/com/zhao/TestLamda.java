@@ -1,18 +1,22 @@
 package com.zhao;
 
 
-import java.util.Scanner;
-import java.time.LocalDate;
-import java.util.concurrent.Semaphore;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Random;
 
 /**
  *  测试lamda表达式
  */
 public class TestLamda {
 
-    public static void main(String[] args) {
-        TestLamda tl = new TestLamda();
-        tl.twoSum(new int[]{2,7,11,15} , 9);
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+
+        String name = "赵欢";
+        String name1 = "赵欢";
+        System.out.println(name == name1);
+
+
     }
 
     public int[] twoSum(int[] numbers, int target) {

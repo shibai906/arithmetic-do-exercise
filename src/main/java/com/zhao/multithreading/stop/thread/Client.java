@@ -11,10 +11,8 @@ public class Client {
     public static void main(String[] args) throws InterruptedException {
         Thread t = new Thread(new ThreadA());
         t.start();
-        Thread.sleep(1000);
         t.interrupt();
-        t.interrupt();
-        System.out.println(t.isInterrupted());
+
     }
 
 }
@@ -22,8 +20,9 @@ public class Client {
 class ThreadA implements Runnable {
     @Override
     public void run() {
-        while(true) {
-//            System.out.println("nihk");
+        while (true) {
+            System.out.println("你好哇");
         }
+
     }
 }

@@ -6,41 +6,46 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 /**
- *  测试lamda表达式
+ * 测试lamda表达式
  */
 public class TestLamda {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
 
-        String name = "赵欢";
-        String name1 = "赵欢";
-        System.out.println(name == name1);
+        ListNode head = new ListNode();
+        head.val = 1;
+        ListNode nextHead = new ListNode();
+        nextHead.val = 2;
+        head.next = nextHead;
+
+        TestLamda tl = new TestLamda();
+        tl.reveseList(head);
 
 
     }
 
-    public int[] twoSum(int[] numbers, int target) {
-        int[] result = new int[2];
-        if(numbers == null || numbers.length == 0) {
-            return result;
+    public ListNode reveseList(ListNode head) {
+        if (head == null) {
+            return null;
         }
-        int start = 0 , end = numbers.length - 1 , add = numbers[start] + numbers[end];
-        while(start < end) {
-            if(add > target) {
-                end -- ;
-            }
-            if(add < target) {
-                start ++ ;
-            }
-            if(add == target) {
-                result[0] = start + 1;
-                result[1] = end + 1;
-                break;
-            }
-            add = numbers[start] + numbers[end];
+        ListNode newHead = head;
+        head = head.next;
+        newHead.next = null;
+
+        while (head != null) {
+            ListNode node = head;
+            head = head.next;
+            node.next = newHead;
+            newHead = node;
         }
-        return result;
+        return newHead;
     }
 
 
+
+}
+
+class ListNode {
+    int val;
+    ListNode next = null;
 }

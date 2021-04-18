@@ -1,7 +1,5 @@
 package com.zhao.multithreading.semaphore.demo;
 
-import com.zhao.leetcode.tree.easy.SameTree;
-
 import java.util.concurrent.*;
 
 /**

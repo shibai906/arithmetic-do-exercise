@@ -16,19 +16,40 @@ public class SimpleClient {
     private static ExecutorService executor = new ThreadPoolExecutor(10,20,20, TimeUnit.MINUTES, new ArrayBlockingQueue<>(10));
 
     public static void main(String[] args) throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
+        CountDownLatch latch = new CountDownLatch(3);
         executor.execute(() -> {
             System.out.println("闭锁开始----------------");
-            latch.countDown();
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println("闭锁结束");
+            latch.countDown();
         });
+        executor.execute(() -> {
+            System.out.println("闭锁开始----------------");
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("闭锁结束");
+            latch.countDown();
+        });
+        executor.execute(() -> {
+            System.out.println("闭锁开始----------------");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("闭锁结束");
+            latch.countDown();
+        });
+
         latch.await();
-        System.out.println("当前面几个线程全部运行完了，我才开始执行");
+        System.out.println("当前面三个线程都执行完了，然后才开始执行主线程");
 
     }
 

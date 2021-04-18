@@ -11,47 +11,16 @@ public class Test58 {
 
     static volatile int num = 0;
 
+    private static String sql = "insert users(username,password,created_at,updated_at) values";
+
     public static void main(String[] args) {
-        Object obj = new Object();
-        Thread tr1 = new Thread(() -> {
-            synchronized (obj) {
-                while (true) {
-                    if(num % 2 == 0) {
-                        System.out.println(Thread.currentThread().getName() + "----" + num);
-                        num ++;
-                        obj.notify();
-                    } else {
-                        try {
-                            obj.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        });
 
+        StringBuilder sb = new StringBuilder(sql);
+        for(int i = 0 ; i < 1000 ; i ++) {
+            sb.append("('" + i + "','1',now(),now())").append(",");
+        }
+        System.out.println(sb.toString());
 
-        Thread tr2 = new Thread(() -> {
-            synchronized (obj) {
-                while (true) {
-                    if(num % 2 == 1) {
-                        System.out.println(Thread.currentThread().getName() + "----" + num);
-                        num ++;
-                        obj.notify();
-                    } else {
-                        try {
-                            obj.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-            }
-        });
-        tr1.start();
-        tr2.start();
 
     }
 

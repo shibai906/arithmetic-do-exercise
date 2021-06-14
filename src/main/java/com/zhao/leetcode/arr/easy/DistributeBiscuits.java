@@ -1,7 +1,5 @@
 package com.zhao.leetcode.arr.easy;
 
-import java.util.Arrays;
-
 /**
  * @program: arithmetic-do-exercise
  * @author: zhaohuan

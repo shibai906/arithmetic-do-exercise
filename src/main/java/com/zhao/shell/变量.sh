@@ -4,7 +4,7 @@
 # 中间不能有空格，可以使用下划线（_）。
 # 不能使用标点符号。
 # 不能使用bash里的关键字（可用help命令查看保留关键字）。
-bash_name="zhaohuan04@baidu.com"
+bash_name="zhao"
 echo $bash_name
 
 #for file in $(ls /etc)

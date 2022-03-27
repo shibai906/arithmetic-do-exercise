@@ -1,10 +1,5 @@
 package com.zhao;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static jdk.nashorn.internal.objects.Global.print;
-
 /**
  * @program: arithmetic-do-exercise
  * @author: zhaohuan
@@ -12,28 +7,18 @@ import static jdk.nashorn.internal.objects.Global.print;
  * @description
  **/
 public class TestMaiMai {
-
-    List<String> list = new ArrayList<>();
-    public List<String> sort(String str) {
-        if(str == null) {
-            return null;
-        }
-        char[] chars = str.toCharArray();
-
-        char[] newChar = new char[chars.length];
-
-        getSort(newChar , chars , 0);
-        return this.list;
+    static char a;
+    public static void main(String[] args) {
+        System.out.println(a);
+        Integer i = new Integer(1);
+        get(i);
+        System.out.println(i);
     }
 
-    public void getSort(char[] chars , char[] newChar , int start) {
-        for(int i = 0 ; i < chars.length ; i ++) {
+    public static Integer get(Integer i) {
+        i = 111;
 
-        }
-
+        return i;
     }
-
-
-
 
 }

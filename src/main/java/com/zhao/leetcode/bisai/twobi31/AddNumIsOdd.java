@@ -1,10 +1,5 @@
 package com.zhao.leetcode.bisai.twobi31;
 
-import com.zhao.multithreading.deadlock.A;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @program: arithmetic-do-exercise
  * @author: zhaohuan
@@ -25,48 +20,29 @@ public class AddNumIsOdd {
     }
 
 
-    public int num(int arr[]) {
-        int sum=0,ans=0;
-        int[] count = new int[2];
-        count[0]++;
-        for(int i=0;i<arr.length;i++){
-            sum+=arr[i];
-            count[sum%2]++;
-            ans+=count[sum%2==0 ? 1 : 0];
-            ans%=1000000007;
-        }
-        return ans;
-    }
-
-    private int result = 0;
     public int numOfSubarrays(int[] arr) {
-        int max = 1000000007 ;
-        if(arr == null || arr.length == 0) {
+        if (arr == null || arr.length == 0) {
             return 0;
         }
-        int  add = 0 , start = 0;
-        addNum(arr,  add , start) ;
-        System.out.println(adda);
-        return result % max ;
 
+        digui(arr, 0, 0);
+        return adda;
     }
 
+    private void digui(int[] arr, int start, int and) {
 
-
-    private void addNum(int[] arr,  int add , int start) {
-        adda ++;
-        for( ;start < arr.length ; start ++ ) {
-            if(start > 0 && arr[start] == arr[start-1] ) {
-                break;
+        for (int i = start; i < arr.length; i ++) {
+            if ((and + arr[i]) % 2 == 1) {
+                adda ++;
             }
-            add += arr[start] ;
-            addNum(arr ,  add , start + 1);
-            if(add % 2 == 1) {
-                result ++ ;
+            digui(arr, i + 1, and + arr[i]);
+            if (arr[i] % 2 == 1) {
+                adda ++;
             }
-            add -= arr[start];
+            digui(arr, i + 1, 0);
         }
 
     }
+
 
 }

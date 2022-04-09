@@ -21,7 +21,7 @@ import java.util.List;
  **/
 public class StackMax {
 
-    // TODO: 2022/4/3 还没完全理解 
+    // TODO: 2022/4/3 还没完全理解
 
     public int maxValueOfCoins(List<List<Integer>> piles, int k) {
         int n = piles.size();

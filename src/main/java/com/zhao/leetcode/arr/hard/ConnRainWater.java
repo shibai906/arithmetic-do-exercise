@@ -1,5 +1,8 @@
 package com.zhao.leetcode.arr.hard;
 
+import java.lang.reflect.Array;
+import java.util.*;
+
 /**
  * 地址： https://leetcode-cn.com/problems/trapping-rain-water/
  * 接雨水
@@ -11,8 +14,11 @@ package com.zhao.leetcode.arr.hard;
 public class ConnRainWater {
 
     public static void main(String[] args) {
-
+        Set<Integer> set = new HashSet<>();
+        System.out.println(set.contains("俏俏"));
         System.out.println(trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(java.util.Arrays.asList(1,23,3));
 
     }
 

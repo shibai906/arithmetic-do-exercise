@@ -16,49 +16,68 @@ public class ConnRainWater {
 
     }
 
+    /**
+     * 接雨水问题：
+     *  1、使用动态规划，从左边看的最大值，从右边看的最大值
+     * @param height
+     * @return
+     */
     public static int trap(int[] height) {
-
-        int i = 1 , j = height.length - 2,opeI = i - 1 , opeJ = j + 1 , count = 0;
-        if( j == 1) {
-            int min = Math.min(height[opeI],height[opeJ]) ;
-            count += min * 3 ;
-            if(count == 0) {
-                return 0;
-            }
-            for(int z = 0 ; z < 3 ; z ++) {
-                count -= Math.min(height[z],min);
-            }
-            return count;
-
+        if (height == null || height.length < 3) {
+            return 0;
         }
-        while (opeI < opeJ) {
-            while (i < opeJ && height[i] < height[opeI]) {
-                i ++;
-            }
-            if(height[opeI] <= height[i]) {
-                count += (i - opeI - 1) * height[opeI];
-                for(int z = opeI + 1 ; z < i && height[opeI] != 0 ; z ++) {
-                    count -= Math.min(height[z],height[opeI]);
-                }
-                opeI = i;
-                i ++;
-            }
-
-            while (j > opeI && height[j] < height[opeJ]) {
-                j -- ;
-            }
-            if(height[opeJ] <= height[j]) {
-                count += (opeJ - j - 1) * height[opeJ];
-                for(int z = opeJ - 1 ; z > j && height[opeJ] != 0 ; z --) {
-                    count -= Math.min(height[z],height[opeJ]);
-                }
-                opeJ = j;
-                j --;
-            }
-
+        int n = height.length;
+        int[] leftSight = new int[n];
+        int[] rightSight = new int[n];
+        // 左边视角最大值
+        int max = 0, i = 0;
+        for (; i < n; i ++) {
+            max = Math.max(max, height[i]);
+            leftSight[i] = max;
         }
-        return count;
+        max = 0;
+        i --;
+        // 右边视角最大值
+        for (; i >= 0; i --) {
+            max = Math.max(max, height[i]);
+            rightSight[i] = max;
+        }
+        int result = 0;
+        i ++;
+        for (; i < n; i ++) {
+            result += Math.min(leftSight[i], rightSight[i]) - height[i];
+        }
+        return result;
+    }
 
+    /**
+     * 可以使用双指针，最左最右找出低洼
+     * @param height
+     * @return
+     */
+    public int trapTwoPoint(int[] height) {
+        if (height == null || height.length < 3) {
+            return 0;
+        }
+        int n = height.length, left = 0, right = n - 1, leftMax = height[left], rightMax = height[right], result = 0;
+        while(left < right) {
+            if (height[left] < height[right]) {
+                if (leftMax < height[left]) {
+                    leftMax = height[left];
+                } else {
+                    result += leftMax - height[left];
+                }
+                left ++;
+            } else {
+                if (rightMax < height[right]) {
+                    rightMax = height[right];
+                } else {
+                    result += rightMax - height[right];
+                }
+                right --;
+            }
+        }
+        return result;
     }
 
 

@@ -1,6 +1,6 @@
 package com.zhao;
 
-import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @program: arithmetic-do-exercise
@@ -9,16 +9,13 @@ import java.util.*;
  * @description
  **/
 public class TestAA {
+    public String s = "a";
+    public static void main(String[] args) throws InterruptedException {
 
-    public static void main(String[] args) {
-        int n = 1;
-        n = n >>> 1;
-        System.out.println(n);
-
-        int num = 100;
-        HashMap hashMap = new HashMap<>(num);
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        lock.unlock();
+        lock.lockInterruptibly();
 
     }
-
-
 }

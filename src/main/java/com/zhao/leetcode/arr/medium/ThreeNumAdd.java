@@ -19,7 +19,8 @@ public class ThreeNumAdd {
 
     public static void main(String[] args) {
 
-        threeSum(new int[]{-1,0,1,2,-1,-4});
+        System.out.println(1^1^2);
+//        threeSum(new int[]{-1,0,1,2,-1,-4});
 
     }
 

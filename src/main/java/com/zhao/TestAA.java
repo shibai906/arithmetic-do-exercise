@@ -1,5 +1,7 @@
 package com.zhao;
 
+import java.util.HashSet;
+
 /**
  * @program: arithmetic-do-exercise
  * @author: zhaohuan
@@ -10,16 +12,7 @@ public class TestAA {
     public String s = "a";
 
     public static void main(String[] args) {
-        int[] dp = new int[]{1,1,1};
-
-        int a = 0, b = 0;
-        for (int num : dp) {
-            b = ~a & (b ^ num);
-            a = ~b & (a ^ num);
-        }
-        System.out.println(~1);
-        System.out.println(b);
-
+        HashSet hashSet = new HashSet();
 
     }
 

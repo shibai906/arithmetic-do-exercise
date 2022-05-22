@@ -1,8 +1,8 @@
 package com.zhao.leetcode.bisai.bi288;
 
-import java.util.*;
-
-import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @program: arithmetic-do-exercise

@@ -3,6 +3,7 @@ package com.zhao;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -48,4 +49,13 @@ public class TestLamda {
 class ListNode {
     int val;
     ListNode next = null;
+    ListNode pre = null;
+
+    public ListNode() {
+
+    }
+
+    public ListNode(int val) {
+        this.val = val;
+    }
 }

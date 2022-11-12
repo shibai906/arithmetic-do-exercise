@@ -1,50 +1,64 @@
 package com.zhao;
 
 
-import java.util.Arrays;
+import com.zhao.io.Test;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class TestJava {
 
 
     public static void main(String[] args) {
-        // nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
         TestJava testJava = new TestJava();
-        int arr[] = new int[]{1,2,3,0,0,0};
-        testJava.merge(arr, 3, new int[]{2,5,6}, 3);
-
-        System.out.println(Arrays.toString(arr));
+        testJava.maximumSubarraySum(new int[]{1,5,4,2,9,9,9}, 3);
     }
 
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
+    public long maximumSubarraySum(int[] nums, int k) {
 
-        if (nums1 == null || nums2 == null) {
-            return;
+        Map<Integer, Integer> map = new HashMap();
+        if (nums.length < k) {
+            return 0;
         }
-        int n1 = nums1.length, n2 = nums2.length;
-        if (n1 != m + n || n2 != n) {
-            throw new RuntimeException("输入有误");
+
+        long add = 0;
+        long result = 0;
+        for (int i = 0; i < k; i ++) {
+            add += nums[i];
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
         }
-        int i =n1 - 1;
-        for (;  m > 0 && n > 0; ) {
-            if (nums1[m - 1] > nums2[n - 1]) {
-                nums1[i --] = nums1[ --m];
+        if (map.size() == k) {
+            result = add;
+        }
+
+        for (int i = k; i < nums.length; i ++) {
+            add += nums[i];
+            add -= nums[i - k];
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            Integer num = map.get(nums[i - k]);
+            if (num == null) {
+                System.out.println();
+            }
+            if (num == 1) {
+                map.remove(nums[i - k]);
             } else {
-                nums1[i--] = nums2[--n];
+                map.put(nums[i - k], num - 1);
+            }
+            if (map.size() == k && add > result) {
+                result = add;
             }
         }
-        for (int j = m - 1; j >= 0; j --) {
-            nums1[i --] = nums1[j];
-        }
-        for (int j = n - 1; j >= 0; j --) {
-            nums1[i --] = nums2[n];
-        }
+        return result;
     }
-
-
 
 
 }
+
+
+
+
+
+
 
 
 

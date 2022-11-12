@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+alt pool3A
+定时任务 -> pool3Addr: 通过tronDefiConfigurer.getUsdd2poolNew获取pool3Addr信息
+pool3Addr -> pool3Addr: 通过pool3Addr获取initial、future及其时间信息
+1
+
+链上 -> redis: 存储解析数据
+end
+alt Usdd2poolNewA
+定时任务 -> 链上: 每3小时获取一次信息
+链上 -> redis: 存储解析数据
+end
+@enduml
